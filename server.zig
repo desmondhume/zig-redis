@@ -4,7 +4,7 @@ const net = std.net;
 pub fn main() !void {
     var server = net.StreamServer.init(.{ .reuse_address = true });
     defer server.close();
-    const addr = try net.Address.resolveIp("127.0.0.1", 6896);
+    const addr = try net.Address.resolveIp("127.0.0.1", 6379);
     try server.listen(addr);
 
     while (true) {
